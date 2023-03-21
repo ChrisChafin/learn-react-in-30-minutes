@@ -1,33 +1,162 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App button {
+  transition: all .5s ease-in-out;
+  border: 1px solid #fff;
+  color: #fff;
+  background: none;
+  padding: 20px;
+  border-radius: 30px;
+  max-width: 200px;
+  font-size: 1.1rem;
 }
-
+.App button:hover {
+  transform: scale(1.1);
+}
+.App-logo {
+  height: 10vmin;
+  transition: all .3s ease-in-out;
+  /* pointer-events: none; */
+}
+.App-logo:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: all .3s ease-in-out;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.App-header {
-  background-color: #282c34;
+.App {
+  background-color: #273c6c;
   min-height: 100vh;
+  color: #fff;
   display: flex;
   flex-direction: column;
+}
+.App-header {
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 15px;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.Todo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 50px 0;
+  padding: 0 30px;
+  row-gap: 30px;
 }
-
+.Todo-cobuttonntainer  {
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  background: none;
+  border: 1px solid #fff;
+  transition: all .5s ease-in-out;
+}
+.Todo-container .Input-container {
+  display: flex;
+  justify-content: space-between;
+}
+.Todo-container .Input-container input {
+  width: 50%;
+  padding: 0 10px;
+}
+.Todo-container .List-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  align-items: flex-start;
+  width: 100%;
+  font-size: 1.2rem;
+}
+.Todo-container .List-container span.items-left {
+  margin: 10px 0;
+}
+.Todo-container .List-container .to-do-item {
+  padding: 30px;
+  border-radius: 30px;
+  max-width: 100%;
+  width: calc(100% - 60px);
+  text-align: left;
+  background-color: #091f36;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.Todo-container .List-container .to-do-item label {
+  position: relative;
+}
+/* Hide the browser's default checkbox */
+.Todo-container .List-container .to-do-item label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.Todo-container .List-container .to-do-item label input.checkbox {
+  margin: 0 15px 0 0;
+}
+/* Create a custom checkbox */
+.Todo-container .List-container .to-do-item label .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: none;
+  border-radius: 15px;
+  border: 1px solid #9e363a;
+  
+border-radius: 15px;
+}
+/* On mouse-over, add a grey background color */
+.Todo-container .List-container .to-do-item label:hover input ~ .checkmark {
+  cursor: pointer;
+}
+/* When the checkbox is checked, add a blue background */
+.Todo-container .List-container .to-do-item label input:checked ~ .checkmark {
+  background-color: #2196F3;
+  border: 1px solid #2196F3;
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.Todo-container .List-container .to-do-item label input ~ .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* Show the checkmark when checked */
+.Todo-container .List-container .to-do-item label input:checked ~ .checkmark:after {
+  display: block;
+}
+/* checkmark style */
+.Todo-container .List-container .to-do-item label input:checked ~ .checkmark:after {
+  left: 7px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.Todo-container .List-container .to-do-item .to-do-text {
+  margin: 0 0 0 40px;
+}
+.Todo-container .List-container .to-do-item label input:checked ~ .to-do-text {
+  text-decoration: line-through;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
